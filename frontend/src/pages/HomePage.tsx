@@ -13,9 +13,6 @@ function HomePage() {
       <div className="flex flex-col min-h-screen ">
         <Navbar />
         <div className="flex-grow flex items-center justify-center">
-          <button className="btn btn-ghost" onClick={notify}>
-            Notify !
-          </button>
           <h1 className="text-5xl">Home Page </h1>
         </div>
         <Footer />

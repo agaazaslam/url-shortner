@@ -24,7 +24,7 @@ function AllUrlPage() {
   const [deleteId, setDeleteId] = useState<number>();
   const [link, setLink] = useState("");
 
-  const baseUrl = import.meta.env.VITE_API_URL;
+  const baseUrl = import.meta.env.VITE_API_URL + "v1/urls/";
 
   const copyText = (url: string) => {
     navigator.clipboard.writeText(url);
