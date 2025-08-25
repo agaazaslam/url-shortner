@@ -1,9 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import type { FormEvent, ChangeEvent } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-function UrlInputBox({ setShortUrl }) {
+type UrlInputBoxProps = {
+  setShortUrl: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const UrlInputBox: React.FC<UrlInputBoxProps> = ({ setShortUrl }) => {
   const [url, setUrl] = useState<string>("");
   const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -12,10 +16,12 @@ function UrlInputBox({ setShortUrl }) {
 
     try {
       new URL(url); // throws if invalid
+
       const data = {
         originalUrl: url,
         createdBy: "Agaaz Aslam",
       };
+
       const response = await axios.post(baseUrl, data);
 
       console.log(response.data.url);
@@ -63,6 +69,6 @@ function UrlInputBox({ setShortUrl }) {
       </div>
     </form>
   );
-}
+};
 
 export default UrlInputBox;

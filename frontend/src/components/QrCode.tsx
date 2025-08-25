@@ -1,6 +1,11 @@
 import QRCode from "react-qr-code";
 
-export default function QRCodeModal({ link, onClose }) {
+type QRCodeModalProps = {
+  link: string;
+  onClose: () => void;
+};
+
+const QRCodeModal: React.FC<QRCodeModalProps> = ({ link, onClose }) => {
   return (
     <div className="fixed backdrop-blur-sm shadow-lg border border-white/50 inset-0 flex bg-white/80 items-center justify-center">
       <div className="bg-white p-6 rounded-xl shadow-lg relative">
@@ -21,4 +26,6 @@ export default function QRCodeModal({ link, onClose }) {
       </div>
     </div>
   );
-}
+};
+
+export default QRCodeModal;

@@ -4,7 +4,7 @@ import UrlInputBox from "../components/UrlInputBox";
 import { useState } from "react";
 
 function ShortenPage() {
-  const [shortUrl, setShortUrl] = useState("");
+  const [shortUrl, setShortUrl] = useState<string>("");
 
   return (
     <>

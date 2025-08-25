@@ -21,7 +21,7 @@ function AllUrlPage() {
   const [loading, setLoading] = useState<boolean>(true);
   const [showQR, setShowQR] = useState<boolean>(false);
   const [showDelete, setShowDelete] = useState<boolean>(false);
-  const [deleteId, setDeleteId] = useState<number>();
+  const [deleteId, setDeleteId] = useState<number>(-1);
   const [link, setLink] = useState("");
 
   const baseUrl = import.meta.env.VITE_API_URL + "v1/urls/";

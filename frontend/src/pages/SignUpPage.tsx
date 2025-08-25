@@ -1,16 +1,22 @@
+import React from "react";
+
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { Link } from "react-router";
-const SignUpPage = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+
+const SignUpPage: React.FC = () => {
+  const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+
   const navigate = useNavigate();
+
   const baseUrl = import.meta.env.VITE_AUTH_URL;
-  const handleSignUp = async (event) => {
+
+  const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
@@ -24,7 +30,7 @@ const SignUpPage = () => {
         const response = await axios.post(`${baseUrl}signup`, data);
         console.log(response.data);
         toast.success("Successfully Signed Up");
-        //navigate("/auth/login");
+        navigate("/auth/login");
       }
     } catch (error) {
       console.log(error);
@@ -32,7 +38,10 @@ const SignUpPage = () => {
     }
   };
 
-  const handleChange = (event, set) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    set: React.Dispatch<React.SetStateAction<string>>
+  ) => {
     set(event.target.value);
   };
 
@@ -41,6 +50,7 @@ const SignUpPage = () => {
       <div className="hero-content flex-col lg:flex-row">
         <div className="card bg-base-100 w-full max-w-lg p-6 shrink-0 shadow-2xl">
           <div className="card-body">
+            {/** Form Element  */}
             <form onSubmit={handleSignUp}>
               <fieldset className="fieldset">
                 <label className="label">Username</label>

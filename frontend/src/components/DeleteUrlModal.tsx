@@ -1,8 +1,12 @@
-import React from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const DeleteUrlModal = ({ onClose, deleteId }) => {
+type DeleteUrlProps = {
+  onClose: () => void;
+  deleteId: number;
+};
+
+const DeleteUrlModal: React.FC<DeleteUrlProps> = ({ onClose, deleteId }) => {
   const baseUrl = import.meta.env.VITE_API_URL;
 
   const deleteUrl = async (deleteId: number) => {
@@ -32,15 +36,13 @@ const DeleteUrlModal = ({ onClose, deleteId }) => {
         </p>
         <div className="flex gap-5 p-4 mx-10">
           <button onClick={onClose} className="btn btn-secondary">
-            {" "}
             Cancel
           </button>
           <button
             onClick={() => deleteUrl(deleteId)}
             className="btn btn-error text-white"
           >
-            {" "}
-            Delete{" "}
+            Delete
           </button>
         </div>
       </div>

@@ -1,7 +1,6 @@
-import React from "react";
 import { Link } from "react-router";
 
-const LoginPage = () => {
+const LoginPage: React.FC = () => {
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
