@@ -3,37 +3,37 @@ import ShortenPage from "../pages/ShortenPage.tsx";
 import HomePage from "../pages/HomePage.tsx";
 import AboutPage from "../pages/AboutPage.tsx";
 import AllUrlPage from "../pages/AllUrlPage.tsx";
-import App from "../App.tsx";
 import SignUpPage from "../pages/SignUpPage.tsx";
 import LoginPage from "../pages/LoginPage.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: App,
+    element: <HomePage />,
   },
   {
     path: "/home",
     Component: HomePage,
+    element: <HomePage />,
   },
   {
     path: "/shorten",
-    Component: ShortenPage,
+    element: <ShortenPage />,
   },
   {
     path: "/about",
-    Component: AboutPage,
+    element: <AboutPage />,
   },
   {
     path: "/allurl",
-    Component: AllUrlPage,
+    element: <AllUrlPage />,
   },
 
   {
     path: "/auth",
     children: [
-      { path: "login", Component: LoginPage },
-      { path: "signup", Component: SignUpPage },
+      { path: "login", element: <LoginPage /> },
+      { path: "signup", element: <SignUpPage /> },
     ],
   },
 ]);
