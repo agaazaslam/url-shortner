@@ -9,11 +9,10 @@ import uuid
 
 app = FastAPI()
 
-origins = ["http://localhost:5173","http://localhost:5174"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,          # specific origins
+    allow_origins=["*"],          # specific origins
     allow_credentials=True,
     allow_methods=["*"],            # allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],            # allow all headers
