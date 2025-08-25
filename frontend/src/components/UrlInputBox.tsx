@@ -9,7 +9,8 @@ type UrlInputBoxProps = {
 
 const UrlInputBox: React.FC<UrlInputBoxProps> = ({ setShortUrl }) => {
   const [url, setUrl] = useState<string>("");
-  const baseUrl = import.meta.env.VITE_API_URL;
+  const getUrl = import.meta.env.VITE_API_URL;
+  const baseUrl = `${getUrl}v1/urls/`;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
